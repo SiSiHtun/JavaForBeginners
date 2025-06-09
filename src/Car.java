@@ -1,15 +1,31 @@
 
-public class Car extends MyFrame {
-	public void run() {
+public class Car {
+	int x,y,vx,vy;
+	public Car(int x,int y,int vx,int vy)
+	{
+		this.x=y;
+		this.y=y;
+		this.vx=vx;
+		this.vy=vy;
+	}
+	public void draw(MyFrame frame) {
+		
 	        // Car body
-	        fillRect(50, 100, 200, 80);
+	        frame.fillRect(x+20, y, 40, 20);
 	        // Left wheel
-	        fillOval(70, 160, 50, 50);
+	        frame. fillRect(x,y+20, 80, 20);
 	        // Right wheel
-	        fillOval(180, 160, 50, 50);
+	        frame. fillOval(x+10, y+40, 20, 20);
 	        // Car roof
-	        fillRect(100, 60, 100, 40);
+	        frame. fillOval(x+50, y+40, 20, 20);
 	    
 	}
+	
+	public void move()
+	{
+		x+=vx;
+		y+=vy;
+	}
+	
 
 }
