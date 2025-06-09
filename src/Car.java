@@ -1,12 +1,9 @@
 
-public class Car {
-	int x,y,vx,vy;
+public class Car extends Vehicle{
+	
 	public Car(int x,int y,int vx,int vy)
 	{
-		this.x=y;
-		this.y=y;
-		this.vx=vx;
-		this.vy=vy;
+		super(x,y,vx,vy);
 	}
 	public void draw(MyFrame frame) {
 		
@@ -19,12 +16,6 @@ public class Car {
 	        // Car roof
 	        frame. fillOval(x+50, y+40, 20, 20);
 	    
-	}
-	
-	public void move()
-	{
-		x+=vx;
-		y+=vy;
 	}
 	
 

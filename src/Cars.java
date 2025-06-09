@@ -4,10 +4,7 @@ public class Cars {
 		int x,y,vx,vy;
 		public Cars(int x,int y,int vx,int vy)
 		{
-			this.x=y;
-			this.y=y;
-			this.vx=vx;
-			this.vy=vy;
+			
 		}
 		public void draw(MyFrame frame)
 		{
