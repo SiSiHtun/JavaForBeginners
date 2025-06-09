@@ -10,6 +10,10 @@ public class Vehicle
 		this.vx=vx;
 		this.vy=vy;
 	}
+	public void draw(MyFrame f) 
+	{
+		
+	}
 	public void move()
 	{
 		x+=vx;
