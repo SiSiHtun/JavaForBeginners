@@ -1,5 +1,6 @@
 
-public class Tree {
+public class Tree extends MyFrame{
+	
 	int x,y,vx,vy;
 	public Tree(int x,int y,int vx,int vy) {
 		this.x=x;

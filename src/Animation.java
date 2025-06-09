@@ -27,6 +27,15 @@ public class Animation extends MyFrame {
 			sleep(0.1);
 		}
 		
+		while(x<=170) {
+			clear();
+			
+			setColor(0,128,0);
+			fillOval(x,y,100,100);
+			x+=10;
+			sleep(0.1);
+			}
+		
 	}
 
 }
