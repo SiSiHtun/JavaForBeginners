@@ -8,6 +8,7 @@ public class Player extends Character implements KeyListener
 		f.fillRect(x, y+20, 30, 10);
 		f.setColor(200, 200, 200);
 		f.fillRect(x+10,y,10,30);
+		
 	}
 	public Player(double x,double y,double vx,double vy) 
 	{

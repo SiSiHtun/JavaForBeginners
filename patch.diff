@@ -1,0 +1,70 @@
+From 70a70ef2ece2053732ec9c369fbc651a366ca7b2 Mon Sep 17 00:00:00 2001
+From: "MSI\\sisi2" <zeal24360207@fsgcl.jp>
+Date: Tue, 17 Jun 2025 12:03:12 +0900
+Subject: [PATCH] =?UTF-8?q?10-1/10-2/10-3=20=E7=B7=B4=E7=BF=92=E5=95=8F?=
+ =?UTF-8?q?=E9=A1=8C?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ src/GameFrame.java | 10 +++++++++-
+ src/Player.java    |  8 ++++++++
+ 2 files changed, 17 insertions(+), 1 deletion(-)
+
+diff --git a/src/GameFrame.java b/src/GameFrame.java
+index 0d4c2a9..ab29bdd 100644
+--- a/src/GameFrame.java
++++ b/src/GameFrame.java
+@@ -12,13 +12,21 @@ public class GameFrame extends MyFrame
+ 			clear();
+ 			GameWorld.player.draw(this);
+ 			GameWorld.player.move();
++			
+ 			int i=0;
+ 			while (i<GameWorld.playerBullets.size()) 
+ 			{
+ 				PlayerBullet b=GameWorld.playerBullets.get(i);
+ 				b.draw(this);
+ 				b.move();
+-				i++;
++				if (b.y<0) 
++				{
++					GameWorld.playerBullets.remove(i);
++				}
++				else 
++				{
++					i++;
++				}
+ 			}
+ 			sleep(0.03);
+ 		}
+diff --git a/src/Player.java b/src/Player.java
+index 707976f..b0c77da 100644
+--- a/src/Player.java
++++ b/src/Player.java
+@@ -2,6 +2,13 @@ import java.awt.event.KeyEvent;
+ import java.awt.event.KeyListener;
+ public class Player extends Character implements KeyListener
+ {
++	public void draw(MyFrame f) 
++	{
++		f.setColor(0, 128, 0);
++		f.fillRect(x, y+20, 30, 10);
++		f.setColor(200, 200, 200);
++		f.fillRect(x+10,y,10,30);
++	}
+ 	public Player(double x,double y,double vx,double vy) 
+ 	{
+ 		super(x,y,vx,vy);
+@@ -20,6 +27,7 @@ public class Player extends Character implements KeyListener
+ 		{
+ 			GameWorld.playerBullets.add(
+ 					new PlayerBullet(x,y,0,-10));
++			System.out.println("弾の数="+GameWorld.playerBullets.size());
+ 		}
+ 	}
+ 	public void keyReleased(KeyEvent e)
+-- 
+2.46.0.windows.1
+
